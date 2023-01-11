@@ -4,7 +4,9 @@ const { Schema } = require('mongoose');
 
 const songSchema = new Schema({
   name: String,
-  genre: String,
+  minutes: String,
+  seconds: String,
+  // duration: String,
   singerId: String,
 });
 

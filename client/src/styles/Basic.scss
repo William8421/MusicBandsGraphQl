@@ -1,0 +1,16 @@
+body {
+  background-color: rgb(186, 216, 137);
+
+  .main {
+    text-align: center;
+  }
+
+  .lists {
+    display: flex;
+    justify-content: center;
+
+    li {
+      list-style: none;
+    }
+  }
+}
