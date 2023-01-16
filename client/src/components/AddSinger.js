@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { graphql } from '@apollo/client/react/hoc';
 import { flowRight as compose } from 'lodash';
 import { AddSingerMutation, getSingers, getSongs } from '../queries/queries';
+import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 
 class AddSinger extends Component {
   constructor(props) {
@@ -42,31 +43,37 @@ class AddSinger extends Component {
 
   render() {
     return (
-      <form onSubmit={this.submitForm.bind(this)}>
-        <div>
-          <label>singer Name</label>
-          <input
-            type="text"
-            onChange={(e) => this.setState({ name: e.target.value })}
-          />
-        </div>
-        <div>
-          <label>nationality</label>
-          <input
-            type="text"
-            onChange={(e) => this.setState({ nationality: e.target.value })}
-          />
-        </div>
-        <div>
-          <label>photo link</label>
-          <input
-            type="text"
-            onChange={(e) => this.setState({ photo: e.target.value })}
-          />
-        </div>
-
-        <button>Add Singer</button>
-      </form>
+      <Modal isOpen={this.props.state.isSingerModalOpen}>
+        <ModalHeader toggle={this.props.toggle}>Add Singer</ModalHeader>
+        <ModalBody>
+          <form onSubmit={this.submitForm.bind(this)}>
+            <div>
+              <label>singer Name</label>
+              <input
+                type="text"
+                onChange={(e) => this.setState({ name: e.target.value })}
+              />
+            </div>
+            <div>
+              <label>nationality</label>
+              <input
+                type="text"
+                onChange={(e) => this.setState({ nationality: e.target.value })}
+              />
+            </div>
+            <div>
+              <label>photo link</label>
+              <input
+                type="text"
+                onChange={(e) => this.setState({ photo: e.target.value })}
+              />
+            </div>
+            <ModalFooter>
+              <button onClick={this.props.toggle}>Add Singer</button>
+            </ModalFooter>
+          </form>
+        </ModalBody>
+      </Modal>
     );
   }
 }

@@ -52,13 +52,17 @@ const getSong = gql`
     song(id: $id) {
       id
       name
-      genre
+      minutes
+      seconds
       singer {
         id
         name
         nationality
+        photo
         songs {
           name
+          minutes
+          seconds
           id
         }
       }

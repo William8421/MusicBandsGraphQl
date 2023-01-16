@@ -13,6 +13,22 @@ const client = new ApolloClient({
 });
 
 export default class App extends Component {
+  state = {
+    isSongModalOpen: false,
+    isSingerModalOpen: false,
+  };
+
+  openSongModal = () => {
+    this.setState({
+      isSongModalOpen: !this.state.isSongModalOpen,
+    });
+  };
+
+  openSingerModal = () => {
+    this.setState({
+      isSingerModalOpen: !this.state.isSingerModalOpen,
+    });
+  };
   render() {
     return (
       <ApolloProvider client={client}>
@@ -23,9 +39,11 @@ export default class App extends Component {
             <SingersList />
           </div>
           <div className="lists">
-            <AddSong />
-            <AddSinger />
+            <button onClick={this.openSongModal}>Add Song</button>
+            <AddSong state={this.state} toggle={this.openSongModal} />
           </div>
+          <button onClick={this.openSingerModal}>Add Singer</button>
+          <AddSinger state={this.state} toggle={this.openSingerModal} />
         </div>
       </ApolloProvider>
     );
