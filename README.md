@@ -1,1 +1,1 @@
-# MusicBandsGraphQl
+# PlaylistGraphQl
