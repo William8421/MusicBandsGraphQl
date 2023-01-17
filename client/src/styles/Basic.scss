@@ -1,16 +1,26 @@
 body {
-  background-color: rgb(186, 216, 137);
+  background-color: #914f8a;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
   .main {
     text-align: center;
   }
+}
 
-  .lists {
-    display: flex;
-    justify-content: center;
+h1,
+h2 {
+  text-align: center;
+  color: black;
+  font-family: 'Bitter', serif;
+  text-shadow: 2px 2px 0 #f3f1f1, 4px 4px 0 #9c9c9c;
+}
 
-    li {
-      list-style: none;
-    }
-  }
+.Button {
+  border: none;
+  background-color: #5d7d9b;
+  border-radius: 6px;
+  padding: .3rem;
+  // margin-top: .5rem;
+  color: black;
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.5);
 }

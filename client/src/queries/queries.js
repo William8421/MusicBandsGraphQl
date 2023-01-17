@@ -69,5 +69,28 @@ const getSong = gql`
     }
   }
 `;
+const getSinger = gql`
+  query ($id: ID) {
+    singer(id: $id) {
+      id
+      name
+      nationality
+      photo
+      songs {
+        name
+        minutes
+        seconds
+        id
+      }
+    }
+  }
+`;
 
-export { getSongs, getSingers, AddSongMutation, getSong, AddSingerMutation };
+export {
+  getSongs,
+  getSingers,
+  AddSongMutation,
+  getSong,
+  getSinger,
+  AddSingerMutation,
+};

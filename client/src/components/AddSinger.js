@@ -47,21 +47,21 @@ class AddSinger extends Component {
         <ModalHeader toggle={this.props.toggle}>Add Singer</ModalHeader>
         <ModalBody>
           <form onSubmit={this.submitForm.bind(this)}>
-            <div>
+            <div className="singerInputDiv">
               <label>singer Name</label>
               <input
                 type="text"
                 onChange={(e) => this.setState({ name: e.target.value })}
               />
             </div>
-            <div>
+            <div className="singerInputDiv">
               <label>nationality</label>
               <input
                 type="text"
                 onChange={(e) => this.setState({ nationality: e.target.value })}
               />
             </div>
-            <div>
+            <div className="singerInputDiv">
               <label>photo link</label>
               <input
                 type="text"
@@ -69,7 +69,9 @@ class AddSinger extends Component {
               />
             </div>
             <ModalFooter>
-              <button onClick={this.props.toggle}>Add Singer</button>
+              <button className="Button" onClick={this.props.toggle}>
+                Add Singer
+              </button>
             </ModalFooter>
           </form>
         </ModalBody>

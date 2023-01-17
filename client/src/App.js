@@ -32,18 +32,23 @@ export default class App extends Component {
   render() {
     return (
       <ApolloProvider client={client}>
+        {/* <NavBar /> */}
+        <h1>My Playlist</h1>
         <div className="main">
-          <h1>My Playlist</h1>
-          <div className="lists">
-            <SongsList />
+          <div>
             <SingersList />
+            <button className="Button" onClick={this.openSingerModal}>
+              Add Singer
+            </button>
           </div>
-          <div className="lists">
-            <button onClick={this.openSongModal}>Add Song</button>
+          <div>
+            <AddSinger state={this.state} toggle={this.openSingerModal} />
+            <SongsList />
+            <button className="Button" onClick={this.openSongModal}>
+              Add Song
+            </button>
             <AddSong state={this.state} toggle={this.openSongModal} />
           </div>
-          <button onClick={this.openSingerModal}>Add Singer</button>
-          <AddSinger state={this.state} toggle={this.openSingerModal} />
         </div>
       </ApolloProvider>
     );

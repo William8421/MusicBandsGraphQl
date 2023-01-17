@@ -1,0 +1,40 @@
+.details {
+  img {
+    width: 15%;
+    border-radius: 16px;
+    margin-bottom: 1rem;
+  }
+}
+
+.singersList,
+.songsList {
+  margin-top: 10rem;
+
+  ul {
+    flex-wrap: wrap;
+
+    li {
+      list-style: none;
+      text-align: center;
+      margin: 0 auto;
+    }
+  }
+
+  .ulList {
+    display: flex;
+    justify-content: center;
+  }
+
+  .songSingerList {
+    list-style: none;
+    border: solid 1px #113ea1;
+    border-radius: 16px;
+    width: fit-content;
+    padding: .5rem;
+    text-align: center;
+    cursor: pointer;
+    margin: 1rem;
+    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.5);
+  }
+
+}
