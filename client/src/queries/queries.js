@@ -46,6 +46,20 @@ const AddSingerMutation = gql`
     }
   }
 `;
+const DeleteSingerMutation = gql`
+  mutation DeleteSinger($id: ID!) {
+    deleteSinger(id: $id) {
+      id
+    }
+  }
+`;
+const DeleteSongMutation = gql`
+  mutation DeleteSong($id: ID!) {
+    deleteSong(id: $id) {
+      id
+    }
+  }
+`;
 
 const getSong = gql`
   query ($id: ID) {
@@ -93,4 +107,6 @@ export {
   getSong,
   getSinger,
   AddSingerMutation,
+  DeleteSingerMutation,
+  DeleteSongMutation,
 };

@@ -113,6 +113,43 @@ const Mutation = new GraphQLObjectType({
         return singer.save();
       },
     },
+    deleteSinger: {
+      type: SingerType,
+      args: {
+        id: { type: GraphQLID },
+      },
+      resolve: async (parent, args) => {
+        let deletedSinger = await Singer.findByIdAndDelete(args.id);
+        return deletedSinger;
+      },
+    },
+    deleteSong: {
+      type: SongType,
+      args: {
+        id: { type: GraphQLID },
+      },
+      resolve: async (parent, args) => {
+        let deletedSong = await Song.findByIdAndDelete(args.id);
+        return deletedSong;
+      },
+    },
+    updateSinger: {
+      type: SingerType,
+      args: {
+        id: { type: GraphQLID },
+        name: { type: GraphQLString },
+        nationality: { type: GraphQLString },
+        photo: { type: GraphQLString },
+      },
+      resolve: async (parent, args) => {
+        let updateSinger = await Singer.findByIdAndUpdate(args.id, {
+          name: args.name,
+          nationality: args.nationality,
+          photo: args.photo,
+        });
+        return updateSinger;
+      },
+    },
   },
 });
 

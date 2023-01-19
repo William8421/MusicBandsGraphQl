@@ -9,7 +9,6 @@ class AddSong extends Component {
     super(props);
     this.state = {
       name: '',
-      // duration: '',
       minutes: '00',
       seconds: '00',
       singerId: 'UnKnown',

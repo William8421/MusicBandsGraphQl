@@ -13,21 +13,6 @@ class AddSinger extends Component {
       photo: '',
     };
   }
-  // displaySong() {
-  //   let data = this.props.getSongs;
-
-  //   if (data.loading) {
-  //     return <option disabled>Loading Songs...</option>;
-  //   } else {
-  //     return data.songs.map((song) => {
-  //       return (
-  //         <option key={song.id} value={song.id}>
-  //           {song.name}
-  //         </option>
-  //       );
-  //     });
-  //   }
-  // }
   submitForm(e) {
     e.preventDefault();
     this.props.AddSingerMutation({

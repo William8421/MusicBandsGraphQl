@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
-import './styles/main.scss';
+import './styles/Style.scss';
 
 import SongsList from './components/SongsList.js';
 import SingersList from './components/SingersList.js';
-import AddSong from './components/AddSong';
-import AddSinger from './components/AddSinger.js';
 
 const client = new ApolloClient({
   uri: 'http://localhost:8000/graphql?',
@@ -18,36 +16,16 @@ export default class App extends Component {
     isSingerModalOpen: false,
   };
 
-  openSongModal = () => {
-    this.setState({
-      isSongModalOpen: !this.state.isSongModalOpen,
-    });
-  };
-
-  openSingerModal = () => {
-    this.setState({
-      isSingerModalOpen: !this.state.isSingerModalOpen,
-    });
-  };
   render() {
     return (
       <ApolloProvider client={client}>
-        {/* <NavBar /> */}
         <h1>My Playlist</h1>
         <div className="main">
-          <div>
+          <div className="singersDiv">
             <SingersList />
-            <button className="Button" onClick={this.openSingerModal}>
-              Add Singer
-            </button>
           </div>
-          <div>
-            <AddSinger state={this.state} toggle={this.openSingerModal} />
+          <div className="songsDiv">
             <SongsList />
-            <button className="Button" onClick={this.openSongModal}>
-              Add Song
-            </button>
-            <AddSong state={this.state} toggle={this.openSongModal} />
           </div>
         </div>
       </ApolloProvider>
