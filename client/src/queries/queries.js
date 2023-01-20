@@ -23,12 +23,14 @@ const AddSongMutation = gql`
     $name: String!
     $minutes: String!
     $seconds: String!
+    $releaseDate: String!
     $singerId: ID!
   ) {
     addSong(
       name: $name
       minutes: $minutes
       seconds: $seconds
+      releaseDate: $releaseDate
       singerId: $singerId
     ) {
       name
@@ -68,6 +70,7 @@ const getSong = gql`
       name
       minutes
       seconds
+      releaseDate
       singer {
         id
         name
@@ -77,6 +80,7 @@ const getSong = gql`
           name
           minutes
           seconds
+          releaseDate
           id
         }
       }
@@ -94,6 +98,7 @@ const getSinger = gql`
         name
         minutes
         seconds
+        releaseDate
         id
       }
     }

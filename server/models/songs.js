@@ -6,7 +6,7 @@ const songSchema = new Schema({
   name: String,
   minutes: String,
   seconds: String,
-  // duration: String,
+  releaseDate: String,
   singerId: String,
 });
 

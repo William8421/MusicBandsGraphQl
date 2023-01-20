@@ -1,77 +1,74 @@
-.songsDiv,
-.singersDiv {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  width: 40%;
-}
-
-h2 {
-  color: black;
-  font-family: 'Bitter', serif;
-  text-shadow: 2px 2px 0 #f3f1f1, 4px 4px 0 #9c9c9c;
-}
-
-.list {
-  margin-top: 3rem;
+.listContainer {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  width: 50rem;
 
-  ul {
-    flex-wrap: wrap;
 
-    li {
+
+
+  .liCloseContainer {
+
+    display: flex;
+    justify-content: start;
+    gap: 3rem;
+
+    .closeButton {
+      background-color: transparent;
+      border-radius: 50%;
+      height: 1.5rem;
+      width: 1.5rem;
+      padding: 0;
+      border: solid #8A307F 1px;
+      color: rgb(79, 69, 69);
+    }
+
+    // .closeButton:hover {
+    //   transform: scale(1.5);
+    // }
+
+
+    .songSingerLi {
+      border: solid #8A307F 1px;
+      border-radius: 6px;
+      background-color: #89ABE3FF;
+      padding: .3rem;
+      cursor: pointer;
       list-style: none;
-      text-align: center;
-      margin: 0 auto;
     }
   }
 
-  .ulList {
+  .list {
+    width: 70%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+
+    ul {
+      margin: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
   }
 
-  .LICLOSEcontiner {
-    display: flex;
-    align-items: center;
-    position: relative;
-
-  }
-
-  .songSingerList {
-    list-style: none;
-    border: solid 1px #113ea1;
-    border-radius: 16px;
-    width: fit-content;
-    padding: .5rem;
-    padding-right: 1.5rem;
-    text-align: center;
-    cursor: pointer;
-    margin: 1rem;
-    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.5);
-  }
-
-  .closeButton {
-    background-color: transparent;
-    border: none;
-    position: absolute;
-    right: 15px;
-  }
-
-  .closeButton:hover {
-    transform: scale(2);
-  }
 }
 
+.Button {
+  width: fit-content;
+  border: solid 1px #8A307F;
+  border-radius: 6px;
+  padding: .3rem;
+  margin-top: .5rem;
+  background-color: #3c66a9;
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.5);
+}
 
 .modal-header {
-  background-color: #79A7D3;
+  background-color: #89ABE3FF;
 }
 
 .modal-body {
-  background-color: #cc79c4;
+  background-color: #EA738DFF;
 }
 
 form {
@@ -92,14 +89,26 @@ form {
 
   }
 
-  .duration {
+  .durationDiv {
     display: flex;
     margin-left: 4rem;
     gap: 1rem;
   }
 
+  .releaseDateDiv,
+  .selectDiv {
+    margin: .3rem;
+    // margin-right: 5rem;
+    margin-left: 4rem;
 
-  select {
-    margin: 0 auto;
+    input {
+      margin-left: 3rem;
+    }
+
+    select {
+
+      margin-left: 6.5rem;
+    }
   }
+
 }

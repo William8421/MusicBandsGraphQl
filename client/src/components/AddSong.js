@@ -11,7 +11,8 @@ class AddSong extends Component {
       name: '',
       minutes: '00',
       seconds: '00',
-      singerId: 'UnKnown',
+      releaseDate: 'Unknown',
+      singerId: '',
     };
   }
 
@@ -37,6 +38,7 @@ class AddSong extends Component {
         name: this.state.name,
         minutes: this.state.minutes,
         seconds: this.state.seconds,
+        releaseDate: this.state.releaseDate,
         singerId: this.state.singerId,
       },
       refetchQueries: [{ query: getSongs }],
@@ -57,7 +59,7 @@ class AddSong extends Component {
                 onChange={(e) => this.setState({ name: e.target.value })}
               />
             </div>
-            <div className="duration">
+            <div className="durationDiv">
               <div>Duration</div>
               <label>min</label>
               <input
@@ -74,7 +76,16 @@ class AddSong extends Component {
                 onChange={(e) => this.setState({ seconds: e.target.value })}
               />
             </div>
-            <div className="songInputDiv">
+            <div className="releaseDateDiv">
+              <label>ReleaseDate</label>
+              <input
+                type="date"
+                min={1900}
+                max={2099}
+                onChange={(e) => this.setState({ releaseDate: e.target.value })}
+              />
+            </div>
+            <div className="selectDiv">
               <label>Singer</label>
               <select
                 onChange={(e) => this.setState({ singerId: e.target.value })}

@@ -18,6 +18,7 @@ const SongType = new GraphQLObjectType({
     name: { type: GraphQLString },
     minutes: { type: GraphQLString },
     seconds: { type: GraphQLString },
+    releaseDate: { type: GraphQLString },
     singer: {
       type: SingerType,
       resolve: (parent, args) => {
@@ -84,6 +85,7 @@ const Mutation = new GraphQLObjectType({
         name: { type: GraphQLNonNull(GraphQLString) },
         minutes: { type: GraphQLString },
         seconds: { type: GraphQLString },
+        releaseDate: { type: GraphQLString },
         singerId: { type: GraphQLNonNull(GraphQLID) },
       },
       resolve: (parent, args) => {
@@ -92,6 +94,7 @@ const Mutation = new GraphQLObjectType({
           genre: args.genre,
           minutes: args.minutes,
           seconds: args.seconds,
+          releaseDate: args.releaseDate,
           singerId: args.singerId,
         });
         return song.save();

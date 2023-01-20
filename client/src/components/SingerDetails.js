@@ -9,9 +9,11 @@ class SingerDetails extends Component {
       return (
         <div className="details">
           <img src={singer.photo} alt="singer" />
-          <p>Name: {singer.name}</p>
+          <p>
+            Name: <span>{singer.name}</span>
+          </p>
           <p>all {singer.name} songs</p>
-          <ul>
+          <ul className="detailsUl">
             {singer.songs.map((item) => {
               return <li key={item.id}>{item.name}</li>;
             })}

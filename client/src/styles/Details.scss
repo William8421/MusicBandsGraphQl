@@ -1,8 +1,17 @@
 .details {
+  margin-top: 1rem;
+
   img {
-    width: 250px;
+    width: 150px;
     border-radius: 16px;
     margin-bottom: 1rem;
   }
 
+  p {
+    font-weight: bolder;
+
+    span {
+      font-weight: normal;
+    }
+  }
 }
