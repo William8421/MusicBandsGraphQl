@@ -48,16 +48,18 @@ const AddSingerMutation = gql`
     }
   }
 `;
-const DeleteSingerMutation = gql`
-  mutation DeleteSinger($id: ID!) {
-    deleteSinger(id: $id) {
+
+const DeleteSongMutation = gql`
+  mutation DeleteSong($id: ID!) {
+    deleteSong(id: $id) {
       id
     }
   }
 `;
-const DeleteSongMutation = gql`
-  mutation DeleteSong($id: ID!) {
-    deleteSong(id: $id) {
+
+const DeleteSingerMutation = gql`
+  mutation DeleteSinger($id: ID!) {
+    deleteSinger(id: $id) {
       id
     }
   }
@@ -105,6 +107,24 @@ const getSinger = gql`
   }
 `;
 
+const updateSingerMutation = gql`
+  mutation UpdateSinger(
+    $id: ID!
+    $name: String
+    $nationality: String
+    $photo: String
+  ) {
+    updateSinger(
+      id: $id
+      name: $name
+      nationality: $nationality
+      photo: $photo
+    ) {
+      id
+    }
+  }
+`;
+
 export {
   getSongs,
   getSingers,
@@ -114,4 +134,5 @@ export {
   AddSingerMutation,
   DeleteSingerMutation,
   DeleteSongMutation,
+  updateSingerMutation,
 };

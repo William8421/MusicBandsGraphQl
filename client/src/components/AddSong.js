@@ -79,7 +79,7 @@ class AddSong extends Component {
             <div className="releaseDateDiv">
               <label>ReleaseDate</label>
               <input
-                type="date"
+                type="number"
                 min={1900}
                 max={2099}
                 onChange={(e) => this.setState({ releaseDate: e.target.value })}

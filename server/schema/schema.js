@@ -9,6 +9,7 @@ const {
   GraphQLSchema,
   GraphQLList,
   GraphQLNonNull,
+  GraphQLError,
 } = graphql;
 
 const SongType = new GraphQLObjectType({
@@ -107,13 +108,19 @@ const Mutation = new GraphQLObjectType({
         nationality: { type: GraphQLNonNull(GraphQLString) },
         photo: { type: GraphQLNonNull(GraphQLString) },
       },
-      resolve: (parent, args) => {
+      resolve: async (parent, args) => {
+        let allSingers = await Singer.find({});
+        let singersNames = allSingers.map((item) => item.name);
         let singer = new Singer({
           name: args.name,
           nationality: args.nationality,
           photo: args.photo,
         });
-        return singer.save();
+        if (singersNames.includes(args.name)) {
+          throw Error('Singer already exists');
+        } else {
+          return singer.save();
+        }
       },
     },
     deleteSinger: {
@@ -123,7 +130,15 @@ const Mutation = new GraphQLObjectType({
       },
       resolve: async (parent, args) => {
         let deletedSinger = await Singer.findByIdAndDelete(args.id);
-        return deletedSinger;
+        let songs = await Song.find({});
+        let singerSongs = songs.filter((item) => item.singerId === args.id);
+        let matchedIDS = singerSongs.map((item) => item.id);
+        let deletedSongs = await Song.deleteMany({ _id: matchedIDS });
+
+        return {
+          deletedSinger,
+          deletedSongs,
+        };
       },
     },
     deleteSong: {
@@ -151,6 +166,27 @@ const Mutation = new GraphQLObjectType({
           photo: args.photo,
         });
         return updateSinger;
+      },
+    },
+    updateSong: {
+      type: SongType,
+      args: {
+        id: { type: GraphQLID },
+        name: { type: GraphQLString },
+        minutes: { type: GraphQLString },
+        seconds: { type: GraphQLString },
+        releaseDate: { type: GraphQLString },
+        singerId: { type: GraphQLString },
+      },
+      resolve: async (parent, args) => {
+        let updateSong = await Singer.findByIdAndUpdate(args.id, {
+          name: args.name,
+          minutes: args.minutes,
+          seconds: args.seconds,
+          releaseDate: args.releaseDate,
+          singerId: args.singerId,
+        });
+        return updateSong;
       },
     },
   },

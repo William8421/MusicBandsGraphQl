@@ -10,7 +10,7 @@
   .liCloseContainer {
 
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     gap: 3rem;
 
     .closeButton {
@@ -23,15 +23,11 @@
       color: rgb(79, 69, 69);
     }
 
-    // .closeButton:hover {
-    //   transform: scale(1.5);
-    // }
-
 
     .songSingerLi {
       border: solid #8A307F 1px;
       border-radius: 6px;
-      background-color: #89ABE3FF;
+      background-color: rgba(234, 115, 141, 0.394);
       padding: .3rem;
       cursor: pointer;
       list-style: none;
@@ -59,16 +55,25 @@
   border-radius: 6px;
   padding: .3rem;
   margin-top: .5rem;
-  background-color: #3c66a9;
+  background-color: #EA738DFF;
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.5);
 }
 
 .modal-header {
-  background-color: #89ABE3FF;
+  background-color: #EA738DFF;
 }
 
 .modal-body {
-  background-color: #EA738DFF;
+  background-color: #89ABE3FF;
+  min-height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-backdrop {
+  background-color: rgba(137, 172, 227, 0.338);
+
 }
 
 form {
@@ -98,7 +103,6 @@ form {
   .releaseDateDiv,
   .selectDiv {
     margin: .3rem;
-    // margin-right: 5rem;
     margin-left: 4rem;
 
     input {

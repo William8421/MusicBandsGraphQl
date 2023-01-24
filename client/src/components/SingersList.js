@@ -1,15 +1,17 @@
 import { graphql } from '@apollo/client/react/hoc';
 import React, { Component } from 'react';
-import { getSingers, DeleteSingerMutation } from '../queries/queries';
+import { getSingers, DeleteSingerMutation, getSongs } from '../queries/queries';
 import AddSinger from './AddSinger';
 import { flowRight as compose } from 'lodash';
 import SingerDetails from './SingerDetails';
+import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 
 class SingersList extends Component {
   constructor(props) {
     super(props);
     this.state = {
       selected: null,
+      openConfirm: false,
     };
   }
   openSingerModal = () => {
@@ -22,7 +24,10 @@ class SingersList extends Component {
       variables: {
         id: e.target.value,
       },
-      refetchQueries: [{ query: getSingers }],
+      refetchQueries: [{ query: getSingers }, { query: getSongs }],
+    });
+    this.setState({
+      openConfirm: !this.state.openConfirm,
     });
   };
 
@@ -37,11 +42,33 @@ class SingersList extends Component {
             <button
               title="delete singer"
               className="closeButton"
-              value={singer.id}
-              onClick={(e) => this.deleteSinger(e)}
+              onClick={() =>
+                this.setState({ openConfirm: true, selected: singer.id })
+              }
             >
               X
             </button>
+            <Modal isOpen={this.state.openConfirm}>
+              <ModalHeader>Are you sure</ModalHeader>
+              <ModalBody>
+                Deleting this singer will delete all their songs
+              </ModalBody>
+              <ModalFooter>
+                <button
+                  className="Button"
+                  onClick={() => this.setState({ openConfirm: false })}
+                >
+                  cancel
+                </button>
+                <button
+                  className="Button"
+                  value={singer.id}
+                  onClick={(e) => this.deleteSinger(e)}
+                >
+                  confirm
+                </button>
+              </ModalFooter>
+            </Modal>
             <li
               className="songSingerLi"
               onClick={(e) => {

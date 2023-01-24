@@ -77,7 +77,6 @@ class SongsList extends Component {
   }
 }
 
-// export default graphql(getSongs)(SongsList);
 export default compose(
   graphql(getSongs, { name: 'getSongs' }),
   graphql(DeleteSongMutation, { name: 'DeleteSongMutation' })
