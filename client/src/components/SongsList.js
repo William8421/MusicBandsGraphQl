@@ -62,12 +62,22 @@ class SongsList extends Component {
   }
   render() {
     return (
-      <div className="listContainer">
-        <h2>Songs</h2>
-        <div className="list">
-          <ul className="ulList">{this.displaySongs()}</ul>
-          <SongDetails songId={this.state.selected} />
-          <AddSong state={this.state} toggle={this.openSongModal} />
+      <div
+        style={{
+          height: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+        }}
+      >
+        <div className="listContainer">
+          <h2>Songs</h2>
+          <div className="list">
+            <ul className="ulList">{this.displaySongs()}</ul>
+            <SongDetails songId={this.state.selected} />
+            <AddSong state={this.state} toggle={this.openSongModal} />
+          </div>
         </div>
         <button className="Button" onClick={this.openSongModal}>
           Add Song

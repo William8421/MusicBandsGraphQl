@@ -49,9 +49,9 @@ class SingersList extends Component {
               X
             </button>
             <Modal isOpen={this.state.openConfirm}>
-              <ModalHeader>Are you sure</ModalHeader>
+              {/* <ModalHeader>Are you sure</ModalHeader> */}
               <ModalBody>
-                Deleting this singer will delete all their songs
+                Deleting a singer will delete all their songs
               </ModalBody>
               <ModalFooter>
                 <button
@@ -90,12 +90,22 @@ class SingersList extends Component {
   }
   render() {
     return (
-      <div className="listContainer">
-        <h2>Singers</h2>
-        <div className="list">
-          <ul className="ulList">{this.displaySingers()}</ul>
-          <AddSinger state={this.state} toggle={this.openSingerModal} />
-          <SingerDetails singerId={this.state.selected} />
+      <div
+        style={{
+          height: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+        }}
+      >
+        <div className="listContainer">
+          <h2>Singers</h2>
+          <div className="list">
+            <ul className="ulList">{this.displaySingers()}</ul>
+            <AddSinger state={this.state} toggle={this.openSingerModal} />
+            <SingerDetails singerId={this.state.selected} />
+          </div>
         </div>
         <button className="Button" onClick={this.openSingerModal}>
           Add Singer

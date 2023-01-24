@@ -27,7 +27,7 @@
     .songSingerLi {
       border: solid #8A307F 1px;
       border-radius: 6px;
-      background-color: rgba(234, 115, 141, 0.394);
+      background-color: rgba(234, 115, 141, 0.381);
       padding: .3rem;
       cursor: pointer;
       list-style: none;
@@ -51,21 +51,23 @@
 
 .Button {
   width: fit-content;
-  border: solid 1px #8A307F;
+  border: solid 1px #8a307f;
   border-radius: 6px;
   padding: .3rem;
   margin-top: .5rem;
-  background-color: #EA738DFF;
+  background-color: #00fffb;
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.5);
+
 }
 
 .modal-header {
-  background-color: #EA738DFF;
+  background-color: #00fffb;
+  color: black;
 }
 
 .modal-body {
-  background-color: #89ABE3FF;
-  min-height: 150px;
+  background-color: #791253ae;
+  // min-height: 150px;
   display: flex;
   justify-content: center;
   align-items: center;

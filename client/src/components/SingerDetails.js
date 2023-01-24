@@ -20,9 +20,9 @@ class SingerDetails extends Component {
           </ul>
         </div>
       );
-    } else {
+    } /* else {
       return <div>No Singer selected...</div>;
-    }
+    } */
   }
   render() {
     return (
