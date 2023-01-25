@@ -4,7 +4,7 @@ import { getSingers, DeleteSingerMutation, getSongs } from '../queries/queries';
 import AddSinger from './AddSinger';
 import { flowRight as compose } from 'lodash';
 import SingerDetails from './SingerDetails';
-import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
+import { Modal, ModalBody, ModalFooter } from 'reactstrap';
 
 class SingersList extends Component {
   constructor(props) {
@@ -27,6 +27,7 @@ class SingersList extends Component {
       refetchQueries: [{ query: getSingers }, { query: getSongs }],
     });
     this.setState({
+      selected: null,
       openConfirm: !this.state.openConfirm,
     });
   };
@@ -39,7 +40,7 @@ class SingersList extends Component {
       return data.singers.map((singer) => {
         return (
           <div className="liCloseContainer" key={singer.id}>
-            <button
+            {/* <button
               title="delete singer"
               className="closeButton"
               onClick={() =>
@@ -47,9 +48,31 @@ class SingersList extends Component {
               }
             >
               X
-            </button>
+            </button> */}
+            <li
+              className="songSingerLi"
+              onClick={(e) => {
+                if (this.state.selected === null) {
+                  this.setState({ selected: singer.id });
+                } else if (this.state.selected === singer.id) {
+                  this.setState({ selected: null });
+                } else {
+                  this.setState({ selected: singer.id });
+                }
+              }}
+            >
+              <button
+                title="delete singer"
+                className="closeButton"
+                onClick={() =>
+                  this.setState({ openConfirm: true, selected: singer.id })
+                }
+              >
+                X
+              </button>
+              {singer.name}
+            </li>
             <Modal isOpen={this.state.openConfirm}>
-              {/* <ModalHeader>Are you sure</ModalHeader> */}
               <ModalBody>
                 Deleting a singer will delete all their songs
               </ModalBody>
@@ -69,20 +92,6 @@ class SingersList extends Component {
                 </button>
               </ModalFooter>
             </Modal>
-            <li
-              className="songSingerLi"
-              onClick={(e) => {
-                if (this.state.selected === null) {
-                  this.setState({ selected: singer.id });
-                } else if (this.state.selected === singer.id) {
-                  this.setState({ selected: null });
-                } else {
-                  this.setState({ selected: singer.id });
-                }
-              }}
-            >
-              {singer.name}
-            </li>
           </div>
         );
       });

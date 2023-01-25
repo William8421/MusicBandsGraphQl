@@ -1,0 +1,41 @@
+.navbar {
+  background-color: #00fffb;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  h1 {
+    // text-align: center;
+    // margin-top: 2rem;
+    margin-left: 1rem;
+    font-family: 'Bitter', serif;
+    text-shadow: 2px 2px 0 #EA738DFF, 4px 4px 0 #ea738d61;
+  }
+
+  .navButtonsContainer {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10%;
+    // border: solid 1px yellow;
+    width: 70%;
+  }
+}
+
+.appName {
+  text-decoration: none;
+  color: #001928db;
+}
+
+.appName:hover {
+  color: #001928db;
+}
+
+.navlink {
+  text-decoration: none;
+  color: #001928db;
+  border-bottom: solid 1px #001928db;
+}
+
+.navlink:hover {
+  color: #ea738d;
+}

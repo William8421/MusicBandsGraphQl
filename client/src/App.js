@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import './styles/Style.scss';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import SongsList from './components/SongsList.js';
 import SingersList from './components/SingersList.js';
+import NavBar from './components/NavBar';
 
 const client = new ApolloClient({
   uri: 'http://localhost:8000/graphql?',
@@ -19,15 +21,23 @@ export default class App extends Component {
   render() {
     return (
       <ApolloProvider client={client}>
-        <h1>My Playlist</h1>
-        <div className="main">
-          <div className="singersDiv">
-            <SingersList />
-          </div>
-          <div className="songsDiv">
+        <BrowserRouter>
+          <NavBar />
+          <Routes>
+            {/* <h1>My Playlist</h1> */}
+            <Route path="/" />
+            <Route path="singers" element={<SingersList />} />
+            <Route path="songs" element={<SongsList />} />
+            {/* <div className="main"> */}
+            {/* <div className="singersDiv"> */}
+            {/* <SingersList /> */}
+            {/* </div> */}
+            {/* <div className="songsDiv">
             <SongsList />
-          </div>
-        </div>
+          </div> */}
+            {/* </div> */}
+          </Routes>
+        </BrowserRouter>
       </ApolloProvider>
     );
   }

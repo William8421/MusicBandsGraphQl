@@ -4,6 +4,12 @@
   align-items: center;
   width: 50rem;
 
+  h2 {
+    font-family: 'Bitter', serif;
+    text-shadow: 2px 2px 0 #EA738DFF, 4px 4px 0 #00fffb;
+    margin: 5rem;
+  }
+
 
 
 
@@ -12,26 +18,35 @@
     display: flex;
     justify-content: flex-start;
     gap: 3rem;
+    position: relative;
 
     .closeButton {
       background-color: transparent;
-      border-radius: 50%;
       height: 1.5rem;
       width: 1.5rem;
       padding: 0;
-      border: solid #8A307F 1px;
-      color: rgb(79, 69, 69);
+      border: none;
+      position: absolute;
+      left: -8%;
+      top: -20%;
+      color: transparent;
     }
 
 
     .songSingerLi {
       border: solid #8A307F 1px;
       border-radius: 6px;
-      background-color: rgba(234, 115, 141, 0.381);
+      background-color: #ea738d61;
       padding: .3rem;
       cursor: pointer;
       list-style: none;
     }
+  }
+
+  .songSingerLi:hover .closeButton {
+    color: wheat;
+    border: solid 1px wheat;
+    border-radius: 50%;
   }
 
   .list {

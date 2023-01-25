@@ -1,6 +1,13 @@
 .details {
   margin-top: 1rem;
-  color: rgb(234, 115, 141);
+  color: #ea738d;
+
+  .detailsUl {
+    li {
+
+      border-bottom: solid 1px #ea738d;
+    }
+  }
 
   img {
     width: 150px;
