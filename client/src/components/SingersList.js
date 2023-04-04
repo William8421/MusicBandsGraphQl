@@ -40,7 +40,7 @@ class SingersList extends Component {
       return data.singers.map((singer) => {
         return (
           <div className="liCloseContainer" key={singer.id}>
-            {/* <button
+            <button
               title="delete singer"
               className="closeButton"
               onClick={() =>
@@ -48,9 +48,8 @@ class SingersList extends Component {
               }
             >
               X
-            </button> */}
+            </button>
             <li
-              className="songSingerLi"
               onClick={(e) => {
                 if (this.state.selected === null) {
                   this.setState({ selected: singer.id });
@@ -61,15 +60,6 @@ class SingersList extends Component {
                 }
               }}
             >
-              <button
-                title="delete singer"
-                className="closeButton"
-                onClick={() =>
-                  this.setState({ openConfirm: true, selected: singer.id })
-                }
-              >
-                X
-              </button>
               {singer.name}
             </li>
             <Modal isOpen={this.state.openConfirm}>
@@ -99,19 +89,11 @@ class SingersList extends Component {
   }
   render() {
     return (
-      <div
-        style={{
-          height: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-        }}
-      >
+      <div className="singerSongContainer">
         <div className="listContainer">
           <h2>Singers</h2>
-          <div className="list">
-            <ul className="ulList">{this.displaySingers()}</ul>
+          <div>
+            <ul>{this.displaySingers()}</ul>
             <AddSinger state={this.state} toggle={this.openSingerModal} />
             <SingerDetails singerId={this.state.selected} />
           </div>

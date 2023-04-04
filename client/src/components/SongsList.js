@@ -42,7 +42,6 @@ class SongsList extends Component {
               X
             </button>
             <li
-              className="songSingerLi"
               onClick={(e) => {
                 if (this.state.selected === null) {
                   this.setState({ selected: song.id });
@@ -62,19 +61,11 @@ class SongsList extends Component {
   }
   render() {
     return (
-      <div
-        style={{
-          height: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-        }}
-      >
+      <div className="singerSongContainer">
         <div className="listContainer">
           <h2>Songs</h2>
-          <div className="list">
-            <ul className="ulList">{this.displaySongs()}</ul>
+          <div>
+            <ul>{this.displaySongs()}</ul>
             <SongDetails songId={this.state.selected} />
             <AddSong state={this.state} toggle={this.openSongModal} />
           </div>

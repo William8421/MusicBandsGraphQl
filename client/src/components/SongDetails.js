@@ -30,9 +30,7 @@ class SongDetails extends Component {
           </ul>
         </div>
       );
-    } /* else {
-      return <div>No Song selected...</div>;
-    } */
+    }
   }
   render() {
     return (

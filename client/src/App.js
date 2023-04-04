@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
-import './styles/Style.scss';
+import './styles/style.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import SongsList from './components/SongsList.js';
