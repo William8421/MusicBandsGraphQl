@@ -13,9 +13,6 @@ const PORT = process.env.PORT || 8002;
 app.use(cors());
 
 mongoose.connect(process.env.MONGO_URI);
-// mongoose.connect(
-//   'mongodb+srv://william:myPlayList@cluster0.d6vksrd.mongodb.net/my-play-list'
-// );
 mongoose.connection.once('open', () => {
   console.log('connected to database');
 });
