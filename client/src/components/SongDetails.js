@@ -8,7 +8,7 @@ class SongDetails extends Component {
     if (song) {
       return (
         <div className="details">
-          {/* <img src={song.singer.photo} alt="singer" />   */}
+          <img src={song.singer.photo} alt="singer" />  
           <p>
             Song Name: <span>{song.name}</span>
           </p>

@@ -1,154 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Bitter:wght@600&display=swap");
 body {
-  background: url(../musica-para-treinar-scaled.jpg) center/cover no-repeat;
+  background-color: #7572ff;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   color: white;
-  height: 100vh;
-}
-
-.details {
-  margin-top: 1rem;
-  color: #ea738d;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.details .detailsUl {
-  display: flex;
-  flex-direction: column;
-}
-.details .detailsUl li {
-  border-bottom: solid 1px #ea738d;
-  width: fit-content;
-}
-.details img {
-  width: 150px;
-  border-radius: 16px;
-  margin-bottom: 1rem;
-}
-.details p {
-  font-weight: bolder;
-}
-.details p span {
-  font-weight: normal;
-}
-
-.singerSongContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.singerSongContainer .listContainer {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.singerSongContainer .listContainer h2 {
-  font-family: "Bitter", serif;
-  text-shadow: 2px 2px 0 #ea738d, 4px 4px 0 #00fffb;
-  margin: 5rem;
-}
-.singerSongContainer .listContainer ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  max-width: 50rem;
-}
-.singerSongContainer .listContainer ul .liCloseContainer {
-  display: flex;
-  justify-content: flex-start;
-  position: relative;
-  margin: 1rem;
-}
-.singerSongContainer .listContainer ul .liCloseContainer .closeButton {
-  background-color: transparent;
-  height: 1.5rem;
-  width: 1.5rem;
-  padding: 0;
-  border: none;
-  position: absolute;
-  left: -8%;
-  top: -20%;
-  color: transparent;
-}
-.singerSongContainer .listContainer ul .liCloseContainer li {
-  border: solid #8A307F 1px;
-  border-radius: 6px;
-  background-color: rgba(234, 115, 141, 0.3803921569);
-  padding: 0.3rem;
-  cursor: pointer;
-  list-style: none;
-  width: fit-content;
-}
-.singerSongContainer .listContainer ul .liCloseContainer:hover > .closeButton {
-  color: wheat;
-  border: solid 1px wheat;
-  border-radius: 50%;
-}
-
-.Button {
-  width: fit-content;
-  border: solid 1px #8a307f;
-  border-radius: 6px;
-  padding: 0.3rem;
-  margin-top: 0.5rem;
-  background-color: #00fffb;
-  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.5);
-}
-
-.modal-header {
-  background-color: #00fffb;
-  color: black;
-}
-
-.modal-body {
-  background-color: rgba(121, 18, 83, 0.6823529412);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-backdrop {
-  background-color: rgba(137, 172, 227, 0.338);
-}
-
-form input,
-form select {
-  border-radius: 6px;
-}
-form .singerInputDiv,
-form .songInputDiv {
-  display: flex;
-  justify-content: space-between;
-  margin: 0.3rem;
-  margin-right: 5rem;
-  margin-left: 4rem;
-}
-form .durationDiv {
-  display: flex;
-  margin-left: 4rem;
-  gap: 1rem;
-}
-form .releaseDateDiv,
-form .selectDiv {
-  margin: 0.3rem;
-  margin-left: 4rem;
-}
-form .releaseDateDiv input,
-form .selectDiv input {
-  margin-left: 3rem;
-}
-form .releaseDateDiv select,
-form .selectDiv select {
-  margin-left: 6.5rem;
+  height: 100%;
 }
 
 .navbar {
-  background-color: #00fffb;
+  background-color: #fa57c1;
   width: 100%;
   display: flex;
   justify-content: space-between;
+  position: fixed;
 }
 .navbar h1 {
   margin-left: 1rem;
@@ -159,7 +22,7 @@ form .selectDiv select {
   display: flex;
   justify-content: flex-start;
   gap: 10%;
-  width: 70%;
+  width: 50%;
 }
 
 .appName {
@@ -178,7 +41,118 @@ form .selectDiv select {
 }
 
 .navlink:hover {
-  color: #ea738d;
+  color: white;
+  border-bottom: solid 1px white;
+}
+
+.list-container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.list-container .singers-container {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.list-container .singers-container h2 {
+  color: black;
+  text-align: center;
+  font-family: "Bitter", serif;
+  text-shadow: 2px 2px 0 #ea738d, 4px 4px 0 rgba(234, 115, 141, 0.3803921569);
+}
+.list-container .singers-container div ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.list-container .singers-container div ul div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem;
+  gap: 1rem;
+}
+.list-container .singers-container div ul div img {
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.list-container .singers-container div ul div li {
+  list-style: none;
+  background-color: #b166cc;
+  border-radius: 6px;
+  border: solid #8A307F 1px;
+  padding: 0.3rem;
+  cursor: pointer;
+}
+.list-container .add-button {
+  border: none;
+  border-radius: 6px;
+  background-color: #8A307F;
+  color: white;
+}
+
+.singer-details-container {
+  width: 100%;
+  background-color: #69a6f9;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.singer-details-container img {
+  width: 300px;
+  border-radius: 16px;
+  margin-bottom: 1rem;
+}
+.singer-details-container p {
+  font-weight: bold;
+}
+.singer-details-container p span {
+  margin: 0.5rem;
+  font-weight: normal;
+}
+.singer-details-container ul li {
+  border-bottom: solid black 1px;
+}
+.singer-details-container button {
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0 0.5rem;
+}
+
+.warning {
+  color: red;
+}
+
+.modal-header {
+  color: black;
+  background-color: #fa57c1;
+}
+
+.modal-body {
+  background-color: #69a6f9;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding: 1rem;
+}
+.modal-buttons button {
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0 0.5rem;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -32,14 +32,14 @@ class SongsList extends Component {
     } else {
       return data.songs.map((song) => {
         return (
-          <div className="liCloseContainer" key={song.id}>
+          <div className="li-delete-container" key={song.id}>
             <button
               title="delete song"
-              className="closeButton"
+              className="deleteButton"
               value={song.id}
               onClick={(e) => this.deleteSong(e)}
             >
-              X
+              delete
             </button>
             <li
               onClick={(e) => {

@@ -55,7 +55,7 @@ class AddSinger extends Component {
             </div>
             <ModalFooter>
               <button className="Button" onClick={this.props.toggle}>
-                Add Singer
+                Add Singer/Band
               </button>
             </ModalFooter>
           </form>

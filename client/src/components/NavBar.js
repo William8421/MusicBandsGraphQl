@@ -9,11 +9,11 @@ export default class NavBar extends Component {
           <h1>My Playlist</h1>
         </NavLink>
         <div className="navButtonsContainer">
-          <NavLink className="navlink" to={'/'}>
+          {/* <NavLink className="navlink" to={'/'}>
             Home
-          </NavLink>
-          <NavLink className="navlink" to={'/singers'}>
-            Singers
+          </NavLink> */}
+          <NavLink className="navlink" to={'/'}>
+            Singers/Bands
           </NavLink>
           <NavLink className="navlink" to={'/songs'}>
             Songs

@@ -1,17 +1,17 @@
 import { graphql } from '@apollo/client/react/hoc';
 import React, { Component } from 'react';
-import { getSingers, DeleteSingerMutation, getSongs } from '../queries/queries';
+import { getSingers} from '../queries/queries';
 import AddSinger from './AddSinger';
-import { flowRight as compose } from 'lodash';
 import SingerDetails from './SingerDetails';
-import { Modal, ModalBody, ModalFooter } from 'reactstrap';
 
 class SingersList extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      toDelete: null,
       selected: null,
       openConfirm: false,
+      isDetailModalOpen: false
     };
   }
   openSingerModal = () => {
@@ -19,17 +19,19 @@ class SingersList extends Component {
       isSingerModalOpen: !this.state.isSingerModalOpen,
     });
   };
-  deleteSinger = (e) => {
-    this.props.DeleteSingerMutation({
-      variables: {
-        id: e.target.value,
-      },
-      refetchQueries: [{ query: getSingers }, { query: getSongs }],
-    });
+
+
+  displayInfo = (singer) => {
+    if (this.state.selected === null) {
+      this.setState({ selected: singer.id});
+    }else if (this.state.selected === singer.id) {
+      this.setState({ selected: null });
+    } else {
+      this.setState({ selected: singer.id });
+    }
     this.setState({
-      selected: null,
-      openConfirm: !this.state.openConfirm,
-    });
+      isDetailModalOpen: !this.state.isDetailModalOpen
+    })
   };
 
   displaySingers() {
@@ -39,49 +41,15 @@ class SingersList extends Component {
     } else {
       return data.singers.map((singer) => {
         return (
-          <div className="liCloseContainer" key={singer.id}>
-            <button
-              title="delete singer"
-              className="closeButton"
-              onClick={() =>
-                this.setState({ openConfirm: true, selected: singer.id })
-              }
-            >
-              X
-            </button>
+          <div key={singer.id}>
+            <img src={singer.photo} alt={singer.name}
+            onClick={(e) => this.displayInfo(singer)}
+            />
             <li
-              onClick={(e) => {
-                if (this.state.selected === null) {
-                  this.setState({ selected: singer.id });
-                } else if (this.state.selected === singer.id) {
-                  this.setState({ selected: null });
-                } else {
-                  this.setState({ selected: singer.id });
-                }
-              }}
+              onClick={(e) => this.displayInfo(singer)}
             >
               {singer.name}
-            </li>
-            <Modal isOpen={this.state.openConfirm}>
-              <ModalBody>
-                Deleting a singer will delete all their songs
-              </ModalBody>
-              <ModalFooter>
-                <button
-                  className="Button"
-                  onClick={() => this.setState({ openConfirm: false })}
-                >
-                  cancel
-                </button>
-                <button
-                  className="Button"
-                  value={singer.id}
-                  onClick={(e) => this.deleteSinger(e)}
-                >
-                  confirm
-                </button>
-              </ModalFooter>
-            </Modal>
+            </li>           
           </div>
         );
       });
@@ -89,24 +57,22 @@ class SingersList extends Component {
   }
   render() {
     return (
-      <div className="singerSongContainer">
-        <div className="listContainer">
-          <h2>Singers</h2>
+      <div className="list-container">
+        <div className="singers-container">
+          <h2>Singers/Bands</h2>
           <div>
             <ul>{this.displaySingers()}</ul>
             <AddSinger state={this.state} toggle={this.openSingerModal} />
-            <SingerDetails singerId={this.state.selected} />
+            <SingerDetails singerId={this.state.selected} state={this.state} toggle={this.displayInfo}/>
           </div>
         </div>
-        <button className="Button" onClick={this.openSingerModal}>
-          Add Singer
+        <button className="add-button" onClick={this.openSingerModal}>
+          Add Singer/Band
         </button>
       </div>
     );
   }
 }
 
-export default compose(
-  graphql(getSingers, { name: 'getSingers' }),
-  graphql(DeleteSingerMutation, { name: 'DeleteSingerMutation' })
-)(SingersList);
+export default graphql(getSingers, { name: 'getSingers' })
+(SingersList);

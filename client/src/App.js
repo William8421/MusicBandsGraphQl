@@ -3,9 +3,10 @@ import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import './styles/style.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import SongsList from './components/SongsList.js';
-import SingersList from './components/SingersList.js';
 import NavBar from './components/NavBar';
+// import Home from './components/Home';
+import SingersList from './components/SingersList.js';
+import SongsList from './components/SongsList.js';
 
 const client = new ApolloClient({
   uri: 'http://localhost:8000/graphql?',
@@ -16,6 +17,7 @@ export default class App extends Component {
   state = {
     isSongModalOpen: false,
     isSingerModalOpen: false,
+    isDetailModalOpen: false
   };
 
   render() {
@@ -24,18 +26,9 @@ export default class App extends Component {
         <BrowserRouter>
           <NavBar />
           <Routes>
-            {/* <h1>My Playlist</h1> */}
-            <Route path="/" />
-            <Route path="singers" element={<SingersList />} />
+            {/* <Route path="/" element={<Home/>} /> */}
+            <Route path="/" element={<SingersList />} />
             <Route path="songs" element={<SongsList />} />
-            {/* <div className="main"> */}
-            {/* <div className="singersDiv"> */}
-            {/* <SingersList /> */}
-            {/* </div> */}
-            {/* <div className="songsDiv">
-            <SongsList />
-          </div> */}
-            {/* </div> */}
           </Routes>
         </BrowserRouter>
       </ApolloProvider>
