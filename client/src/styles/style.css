@@ -45,44 +45,44 @@ body {
   border-bottom: solid 1px white;
 }
 
-.list-container {
+.singers-list-container {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.list-container .singers-container {
+.singers-list-container .singers-container {
   margin-top: 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.list-container .singers-container h2 {
+.singers-list-container .singers-container h2 {
   color: black;
   text-align: center;
   font-family: "Bitter", serif;
   text-shadow: 2px 2px 0 #ea738d, 4px 4px 0 rgba(234, 115, 141, 0.3803921569);
 }
-.list-container .singers-container div ul {
+.singers-list-container .singers-container div ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-.list-container .singers-container div ul div {
+.singers-list-container .singers-container div ul div {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 1rem;
   gap: 1rem;
 }
-.list-container .singers-container div ul div img {
+.singers-list-container .singers-container div ul div img {
   width: 200px;
   height: 300px;
   object-fit: cover;
   border-radius: 6px;
   cursor: pointer;
 }
-.list-container .singers-container div ul div li {
+.singers-list-container .singers-container div ul div li {
   list-style: none;
   background-color: #b166cc;
   border-radius: 6px;
@@ -90,7 +90,7 @@ body {
   padding: 0.3rem;
   cursor: pointer;
 }
-.list-container .add-button {
+.singers-list-container .add-button {
   border: none;
   border-radius: 6px;
   background-color: #8A307F;
@@ -153,6 +153,125 @@ body {
   border: none;
   border-radius: 6px;
   padding: 0 0.5rem;
+}
+
+.songs-list-container {
+  padding-top: 5rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.songs-list-container .songs-container {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.songs-list-container .songs-container h2 {
+  color: black;
+  text-align: center;
+  font-family: "Bitter", serif;
+  text-shadow: 2px 2px 0 #ea738d, 4px 4px 0 rgba(234, 115, 141, 0.3803921569);
+}
+.songs-list-container .songs-container div ul {
+  display: flex;
+  flex-direction: column;
+}
+.songs-list-container .songs-container div ul .song-container {
+  margin: 1rem;
+}
+.songs-list-container .songs-container div ul .song-container li {
+  width: fit-content;
+  list-style: none;
+  border-bottom: solid 3px #b166cc;
+  cursor: pointer;
+}
+.songs-list-container .songs-container div ul .song-container li h5 {
+  display: none;
+  text-align: center;
+}
+.songs-list-container .songs-container div ul .song-container li:hover > h5 {
+  display: block;
+  width: 120px;
+  color: #8A307F;
+}
+.songs-list-container .add-button {
+  border: none;
+  border-radius: 6px;
+  background-color: #8A307F;
+  color: white;
+}
+
+.song-details-container {
+  width: 100%;
+  background-color: #69a6f9;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.song-details-container img {
+  width: 300px;
+  border-radius: 16px;
+  margin-bottom: 1rem;
+}
+.song-details-container p {
+  font-weight: bold;
+}
+.song-details-container p span {
+  margin: 0.5rem;
+  font-weight: normal;
+}
+.song-details-container ul li {
+  border-bottom: solid black 1px;
+}
+.song-details-container button {
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0 0.5rem;
+}
+
+.warning {
+  color: red;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: none;
+  color: #fa57c1;
+}
+form input {
+  margin: 0.5rem;
+  border-radius: 6px;
+  border: none;
+}
+form .input-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px;
+}
+form .input-div .min-sec-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 155px;
+}
+form .input-div select {
+  border-radius: 6px;
+}
+
+.add-button {
+  margin-top: 1rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #8A307F;
+  color: white;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -17,7 +17,8 @@ export default class App extends Component {
   state = {
     isSongModalOpen: false,
     isSingerModalOpen: false,
-    isDetailModalOpen: false
+    isDetailModalOpen: false,
+    selected: null
   };
 
   render() {
@@ -28,7 +29,7 @@ export default class App extends Component {
           <Routes>
             {/* <Route path="/" element={<Home/>} /> */}
             <Route path="/" element={<SingersList />} />
-            <Route path="songs" element={<SongsList />} />
+            <Route path="/songs" element={<SongsList />} />
           </Routes>
         </BrowserRouter>
       </ApolloProvider>

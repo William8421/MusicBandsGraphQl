@@ -5,6 +5,10 @@ const getSongs = gql`
     songs {
       name
       id
+      singer{
+        name
+        photo
+      }
     }
   }
 `;

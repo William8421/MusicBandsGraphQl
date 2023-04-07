@@ -1,0 +1,34 @@
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: none;
+    color: #fa57c1;
+    input{
+        margin: .5rem;
+        border-radius: 6px;
+        border: none;
+    }
+    .input-div{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 300px;
+        .min-sec-div{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 155px;
+        }
+        select{
+            border-radius: 6px;
+        }
+    }
+}
+.add-button{
+    margin-top: 1rem;
+    border: none;
+    border-radius: 6px;
+    background-color: #8A307F;
+    color: white;
+}

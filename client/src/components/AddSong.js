@@ -52,15 +52,16 @@ class AddSong extends Component {
         <ModalHeader toggle={this.props.toggle}>Add Song</ModalHeader>
         <ModalBody>
           <form onSubmit={this.submitForm.bind(this)}>
-            <div className="songInputDiv">
+            <div className="input-div">
               <label>Song Name</label>
               <input
                 type="text"
                 onChange={(e) => this.setState({ name: e.target.value })}
               />
             </div>
-            <div className="durationDiv">
+            <div className="input-div">
               <div>Duration</div>
+              <div className='min-sec-div'>
               <label>min</label>
               <input
                 type="number"
@@ -75,8 +76,9 @@ class AddSong extends Component {
                 max={60}
                 onChange={(e) => this.setState({ seconds: e.target.value })}
               />
+              </div>
             </div>
-            <div className="releaseDateDiv">
+            <div className="input-div">
               <label>ReleaseDate</label>
               <input
                 type="number"
@@ -85,7 +87,7 @@ class AddSong extends Component {
                 onChange={(e) => this.setState({ releaseDate: e.target.value })}
               />
             </div>
-            <div className="selectDiv">
+            <div className="input-div">
               <label>Singer</label>
               <select
                 onChange={(e) => this.setState({ singerId: e.target.value })}
@@ -95,7 +97,7 @@ class AddSong extends Component {
               </select>
             </div>
             <ModalFooter>
-              <button className="Button" onClick={this.props.toggle}>
+              <button className="add-button" onClick={this.props.toggle}>
                 Add Song
               </button>
             </ModalFooter>

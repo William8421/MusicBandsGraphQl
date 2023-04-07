@@ -57,7 +57,7 @@ class SingersList extends Component {
   }
   render() {
     return (
-      <div className="list-container">
+      <div className="singers-list-container">
         <div className="singers-container">
           <h2>Singers/Bands</h2>
           <div>

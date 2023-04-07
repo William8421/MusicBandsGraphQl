@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { graphql } from '@apollo/client/react/hoc';
 import { flowRight as compose } from 'lodash';
 import { AddSingerMutation, getSingers, getSongs } from '../queries/queries';
-import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
+import { Modal, ModalBody, ModalHeader } from 'reactstrap';
 
 class AddSinger extends Component {
   constructor(props) {
@@ -32,32 +32,33 @@ class AddSinger extends Component {
         <ModalHeader toggle={this.props.toggle}>Add Singer</ModalHeader>
         <ModalBody>
           <form onSubmit={this.submitForm.bind(this)}>
-            <div className="singerInputDiv">
-              <label>singer Name</label>
+            <div className="input-div">
+              <label>Singer/Band Name</label>
               <input
                 type="text"
                 onChange={(e) => this.setState({ name: e.target.value })}
               />
             </div>
-            <div className="singerInputDiv">
-              <label>nationality</label>
+            <div className="input-div">
+              <label>Nationality</label>
               <input
                 type="text"
                 onChange={(e) => this.setState({ nationality: e.target.value })}
               />
             </div>
-            <div className="singerInputDiv">
-              <label>photo link</label>
+            <div className="input-div">
+              <label>Photo link</label>
               <input
                 type="text"
                 onChange={(e) => this.setState({ photo: e.target.value })}
               />
             </div>
-            <ModalFooter>
-              <button className="Button" onClick={this.props.toggle}>
+            <div>
+              <button className="add-button" onClick={this.props.toggle}>
                 Add Singer/Band
               </button>
-            </ModalFooter>
+            </div>
+            
           </form>
         </ModalBody>
       </Modal>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { graphql } from '@apollo/client/react/hoc';
 import { getSinger,getSingers, DeleteSingerMutation, getSongs } from '../queries/queries';
 import { flowRight as compose } from 'lodash';
-import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
+import { Modal, ModalBody, ModalHeader } from 'reactstrap';
 
 class DetailModal extends Component {
   constructor(props) {
@@ -10,7 +10,7 @@ class DetailModal extends Component {
     this.state = {
       toDelete: null,
       selected: null,
-      openConfirm: false
+      openConfirm: false,
     };
   }
   deleteSinger = (e) => {

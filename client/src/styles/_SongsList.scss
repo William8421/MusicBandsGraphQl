@@ -1,0 +1,49 @@
+.songs-list-container{
+    padding-top: 5rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .songs-container{
+        margin-top: 5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h2{
+            color: black;
+            text-align: center;
+            font-family: 'Bitter', serif;
+            text-shadow: 2px 2px 0 #EA738DFF, 4px 4px 0 #ea738d61;
+        }
+        div{
+            ul{
+                display: flex;
+                flex-direction: column;
+                .song-container{
+                        margin: 1rem;
+                        li{
+                            width: fit-content;
+                            list-style: none;
+                            border-bottom: solid 3px #b166cc;
+                            cursor: pointer;
+                            h5{
+                                display: none;
+                                text-align: center;
+                            }
+                        }
+                        li:hover>h5{
+                            display: block;
+                            width: 120px;
+                            color: #8A307F;
+                        }
+                    }
+            }
+        }
+    }
+    .add-button{
+        border: none;
+        border-radius: 6px;
+        background-color: #8A307F;
+        color: white;
+    }
+}

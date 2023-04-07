@@ -1,0 +1,37 @@
+.song-details-container{
+    width: 100%;
+    background-color: #69a6f9;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img{
+        width: 300px;
+        border-radius: 16px;
+        margin-bottom: 1rem;
+    }
+    p{
+        font-weight: bold;
+        span{
+            margin: .5rem;
+            font-weight: normal;
+        }
+    }
+    ul{
+        li{
+            border-bottom: solid black 1px;
+        }
+    }
+    button{
+        background-color: red;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        padding: 0 .5rem;
+    }
+    
+}
+
+    .warning{
+        color: red;
+    }

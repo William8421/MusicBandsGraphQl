@@ -17,14 +17,21 @@ class SongsList extends Component {
       isSongModalOpen: !this.state.isSongModalOpen,
     });
   };
-  deleteSong = (e) => {
-    this.props.DeleteSongMutation({
-      variables: {
-        id: e.target.value,
-      },
-      refetchQueries: [{ query: getSongs }],
-    });
+
+  displayInfo = (song) => {
+    if (this.state.selected === null) {
+      this.setState({ selected: song.id});
+    }else if (this.state.selected === song.id) {
+      this.setState({ selected: null });
+    } else {
+      this.setState({ selected: song.id });
+    }
+    this.setState({
+      isDetailModalOpen: !this.state.isDetailModalOpen
+    })
   };
+
+
   displaySongs() {
     let data = this.props.getSongs;
     if (data.loading) {
@@ -32,27 +39,12 @@ class SongsList extends Component {
     } else {
       return data.songs.map((song) => {
         return (
-          <div className="li-delete-container" key={song.id}>
-            <button
-              title="delete song"
-              className="deleteButton"
-              value={song.id}
-              onClick={(e) => this.deleteSong(e)}
-            >
-              delete
-            </button>
+          <div className='song-container' key={song.id}>
             <li
-              onClick={(e) => {
-                if (this.state.selected === null) {
-                  this.setState({ selected: song.id });
-                } else if (this.state.selected === song.id) {
-                  this.setState({ selected: null });
-                } else {
-                  this.setState({ selected: song.id });
-                }
-              }}
+              onClick={(e) => this.displayInfo(song)}
             >
               {song.name}
+            <h5> by {song.singer.name}</h5>
             </li>
           </div>
         );
@@ -61,16 +53,16 @@ class SongsList extends Component {
   }
   render() {
     return (
-      <div className="singerSongContainer">
-        <div className="listContainer">
+      <div className="songs-list-container">
+        <div className="songs-container">
           <h2>Songs</h2>
           <div>
             <ul>{this.displaySongs()}</ul>
-            <SongDetails songId={this.state.selected} />
+            <SongDetails songId={this.state.selected} state={this.state} toggle={this.displayInfo} />
             <AddSong state={this.state} toggle={this.openSongModal} />
           </div>
         </div>
-        <button className="Button" onClick={this.openSongModal}>
+        <button className="add-button" onClick={this.openSongModal}>
           Add Song
         </button>
       </div>
