@@ -18,13 +18,13 @@
         div{
             ul{
                 display: flex;
-                flex-direction: column;
+                flex-wrap: wrap;
                 .song-container{
                         margin: 1rem;
                         li{
                             width: fit-content;
                             list-style: none;
-                            border-bottom: solid 3px #b166cc;
+                            width: 350px;
                             cursor: pointer;
                             h5{
                                 display: none;

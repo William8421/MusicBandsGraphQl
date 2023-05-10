@@ -3,6 +3,7 @@ import { graphql } from '@apollo/client/react/hoc';
 import { flowRight as compose } from 'lodash';
 import { AddSingerMutation, getSingers, getSongs } from '../queries/queries';
 import { Modal, ModalBody, ModalHeader } from 'reactstrap';
+import axios from 'axios'
 
 class AddSinger extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class AddSinger extends Component {
       name: '',
       nationality: '',
       photo: '',
+      uploaded: ''
     };
   }
   submitForm(e) {
@@ -24,6 +26,29 @@ class AddSinger extends Component {
       refetchQueries: [{ query: getSingers }],
     });
     e.target.reset();
+  }
+
+  imageHandler(e){
+    this.setState({
+      photo: e.target.files[0]
+    })
+  }
+
+  uploadImage(e){
+    e.preventDefault()
+    const formData = new FormData()
+    formData.append('file', this.state.photo);
+    formData.append("upload_preset", "WilliamMallak");
+    formData.append("upload_name", "denpxdokx");
+
+    axios.post("https://api.cloudinary.com/v1_1/denpxdokx/image/upload", formData)
+    .then(response => {
+      this.setState({
+        uploaded: response.data.url,
+        photo: response.data.url
+      })
+    })
+    console.log('state', this.state);
   }
 
   render() {
@@ -46,19 +71,20 @@ class AddSinger extends Component {
                 onChange={(e) => this.setState({ nationality: e.target.value })}
               />
             </div>
-            <div className="input-div">
-              <label>Photo link</label>
+            <div className="input-div-image">
+              <label>Image</label>
               <input
-                type="text"
-                onChange={(e) => this.setState({ photo: e.target.value })}
+                type="file"
+                name='photo'
+                onChange={(e) => this.imageHandler(e)}
               />
             </div>
+              {this.state.photo && <button className='add-button' onClick={(e) => this.uploadImage(e)}>Upload</button>}              
             <div>
-              <button className="add-button" onClick={this.props.toggle}>
+              {this.state.uploaded && this.state.name && this.state.nationality? (<button className="add-button" onClick={this.props.toggle}>
                 Add Singer/Band
-              </button>
-            </div>
-            
+              </button>) : (<button style={{backgroundColor: "grey", borderRadius: "6px"}} disabled>Add Singer/Band</button>)}
+              </div>
           </form>
         </ModalBody>
       </Modal>

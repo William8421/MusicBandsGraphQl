@@ -6,8 +6,8 @@ form{
     color: #fa57c1;
     input{
         margin: .5rem;
+        border: none; 
         border-radius: 6px;
-        border: none;
     }
     .input-div{
         display: flex;
@@ -22,6 +22,17 @@ form{
         }
         select{
             border-radius: 6px;
+        }
+    }
+    .input-div-image{
+        border: solid 1px red;
+        width: 300px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        input{
+            border: solid 1px green;
+            width: 150px;
         }
     }
 }
