@@ -9,7 +9,7 @@ import SingersList from './components/SingersList.js';
 import SongsList from './components/SongsList.js';
 
 const client = new ApolloClient({
-  uri: 'http://localhost:8000/graphql?',
+  uri: 'https://graphqlserver-phi.vercel.app/',
   cache: new InMemoryCache(),
 });
 

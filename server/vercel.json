@@ -16,5 +16,8 @@
             "status": 404,
             "dest": "server.js"
         }
-    ]
+    ],
+    "env": {
+        "MONGO_URI": "mongodb+srv://william:myPlayList@cluster0.d6vksrd.mongodb.net/my-play-list"
+    }
 }
