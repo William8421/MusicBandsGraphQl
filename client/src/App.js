@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
-import './styles/style.scss';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React, { Component } from "react";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import "./styles/style.scss";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import NavBar from './components/NavBar';
+import NavBar from "./components/NavBar";
 // import Home from './components/Home';
-import SingersList from './components/SingersList.js';
-import SongsList from './components/SongsList.js';
+import SingersList from "./components/SingersList.js";
+import SongsList from "./components/SongsList.js";
 
 const client = new ApolloClient({
-  uri: 'https://graphqlserver-phi.vercel.app/',
+  uri: "http://localhost:8000/graphql?",
   cache: new InMemoryCache(),
 });
 
@@ -18,7 +18,7 @@ export default class App extends Component {
     isSongModalOpen: false,
     isSingerModalOpen: false,
     isDetailModalOpen: false,
-    selected: null
+    selected: null,
   };
 
   render() {
